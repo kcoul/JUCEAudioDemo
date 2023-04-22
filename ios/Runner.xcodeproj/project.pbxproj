@@ -24,7 +24,6 @@
 		B323909F29B8E27900F6D401 /* ExampleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323909E29B8E27900F6D401 /* ExampleEntity.swift */; };
 		B336EB3B29B8F33100718CF5 /* OCExample.mm in Sources */ = {isa = PBXBuildFile; fileRef = B336EB3A29B8F33100718CF5 /* OCExample.mm */; };
 		B3EAF03E29BB3BAF00485934 /* AudioPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B3EAF03C29BB3BAF00485934 /* AudioPlayer.cpp */; };
-		B3EAF04029BB45D500485934 /* libjuceaudio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3EAF03F29BB45D500485934 /* libjuceaudio.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,7 +69,6 @@
 		B336EB3A29B8F33100718CF5 /* OCExample.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = OCExample.mm; sourceTree = "<group>"; };
 		B3EAF03C29BB3BAF00485934 /* AudioPlayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AudioPlayer.cpp; sourceTree = "<group>"; };
 		B3EAF03D29BB3BAF00485934 /* AudioPlayer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioPlayer.hpp; sourceTree = "<group>"; };
-		B3EAF03F29BB45D500485934 /* libjuceaudio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjuceaudio.a; sourceTree = "<group>"; };
 		B3EAF04129BB45E400485934 /* AudioSamplePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioSamplePlayer.h; sourceTree = "<group>"; };
 		B3EAF04229BB45E400485934 /* AudioSamplePlayerListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioSamplePlayerListener.h; sourceTree = "<group>"; };
 		B3EAF04329BB45ED00485934 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 				B31817E129B9D94500D1AB20 /* CoreAudio.framework in Frameworks */,
 				B31817DF29B9D93400D1AB20 /* AVFoundation.framework in Frameworks */,
 				B31817E329B9D94C00D1AB20 /* CoreMIDI.framework in Frameworks */,
-				B3EAF04029BB45D500485934 /* libjuceaudio.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +153,6 @@
 		B31817E429B9DC5800D1AB20 /* Juce */ = {
 			isa = PBXGroup;
 			children = (
-				B3EAF03F29BB45D500485934 /* libjuceaudio.a */,
 				B3EAF04329BB45ED00485934 /* AppConfig.h */,
 				B3EAF04129BB45E400485934 /* AudioSamplePlayer.h */,
 				B3EAF04229BB45E400485934 /* AudioSamplePlayerListener.h */,
@@ -370,6 +366,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -400,11 +397,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 943W7Z634Q;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_NDEBUG=1",
 					"NDEBUG=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					$SRCROOT/Runner/Natif/Cpp/Juce,
+					$HOME/repos/JUCE/modules,
 				);
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -454,6 +455,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -513,6 +515,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -545,8 +548,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 943W7Z634Q;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
 				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = (
+					$SRCROOT/Runner/Natif/Cpp/Juce,
+					$HOME/repos/JUCE/modules,
+				);
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -555,6 +562,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Runner/Native/Cpp/Juce",
+				);
+				OTHER_LDFLAGS = (
+					"-ljuceaudio",
+					"-L$(SRCROOT)/Runner/Native/Cpp/Juce/Debug",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.juceaudio.juceaudiodemo.juceaudiodemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -572,11 +583,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 943W7Z634Q;
+				DEVELOPMENT_TEAM = NQ2VLM7NM7;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"_NDEBUG=1",
 					"NDEBUG=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					$SRCROOT/Runner/Natif/Cpp/Juce,
+					$HOME/repos/JUCE/modules,
 				);
 				INFOPLIST_FILE = Runner/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -586,6 +601,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Runner/Native/Cpp/Juce",
+				);
+				OTHER_LDFLAGS = (
+					"-ljuceaudio",
+					"-L$(SRCROOT)/Runner/Native/Cpp/Juce/Release",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.juceaudio.juceaudiodemo.juceaudiodemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

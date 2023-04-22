@@ -1,10 +1,12 @@
 
 #ifndef AudioPlayer_hpp
 #define AudioPlayer_hpp
-#define M_PI 3.14159265358979323846
+#ifndef M_PI
+  #define M_PI 3.14159265358979323846
+#endif
 
 #include "Juce/AudioSamplePlayerListener.h"
-#include "JUCE/AudioSamplePlayer.h"
+#include "Juce/AudioSamplePlayer.h"
 
 class AudioPlayer : jad::AudioSamplePlayerListener
 {
