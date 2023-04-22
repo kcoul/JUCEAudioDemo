@@ -7,7 +7,7 @@ project(JUCEAudioDemo)
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Ofast")
 
 # JUCE directory
-set(JUCE_DIR "$ENV{HOME}/JUCE")
+set(JUCE_DIR "$ENV{HOME}/repos/JUCE")
 
 # Oboe
 set(OBOE_DIR "${JUCE_DIR}/modules/juce_audio_devices/native/oboe")
